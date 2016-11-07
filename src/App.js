@@ -20,7 +20,7 @@ class App extends Component {
       //  <Header headerText="EXQUISITE" />
           <Router>
             <Scene key="root">
-
+            //some comments
             <Scene
               key="tabbar"
               tabs
