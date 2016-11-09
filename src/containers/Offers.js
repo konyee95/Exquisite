@@ -33,8 +33,9 @@ export default class Offers extends Component{
 const styles = {
   container: {
     flex:1,
+    paddingTop:50,
     backgroundColor: 'pink',
-    justifyContent: 'center',
+    justifyContent: 'flex-start',
     alignItems: 'flex-start'
   },
   title: {

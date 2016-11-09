@@ -9,22 +9,16 @@ export default class Home extends Component{
       <View style={styles.container}>
       <Card>
         <CardSection>
-          <Text style= {styles.title}> Product 1 </Text>
+          <Text style= {styles.title}> Advertisement </Text>
         </CardSection>
 
-        <CardSection>
-          <Text style= {styles.title}> Product Detail </Text>
-        </CardSection>
       </Card>
 
       <Card>
         <CardSection>
-          <Text style= {styles.title}> Product 2 </Text>
+          <Text style= {styles.title}> Product  </Text>
         </CardSection>
 
-        <CardSection>
-          <Text style= {styles.title}> Product Detail </Text>
-        </CardSection>
       </Card>
       </View>
     );
@@ -34,8 +28,9 @@ export default class Home extends Component{
 const styles = {
   container: {
     flex:1,
+    paddingTop:50,
     backgroundColor: '#ffbf80',
-    justifyContent: 'center',
+    justifyContent: 'flex-start',
     alignItems: 'flex-start'
   },
   title: {

@@ -7,6 +7,10 @@ import User from './containers/User';
 import Offers from './containers/Offers';
 import ShoppingCart from './containers/ShoppingCart';
 
+
+import Icon from 'react-native-vector-icons/MaterialIcons';
+const home = (<Icon name="home" size={13} color="black" />)
+
 const TabIcon=({ selected,title }) => {
   return(
     <Text style={{color:selected ? 'blue': 'black'}}>{title}</Text>
@@ -18,9 +22,9 @@ class App extends Component {
     return(
       //<View>
       //  <Header headerText="EXQUISITE" />
+      <View style={{ flex: 1 }}>
           <Router>
             <Scene key="root">
-            //some comments
             <Scene
               key="tabbar"
               tabs
@@ -61,7 +65,7 @@ class App extends Component {
             </Scene>
             </Scene>
           </Router>
-      //</View>
+      </View>
     );
   }
 }

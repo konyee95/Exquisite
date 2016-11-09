@@ -33,8 +33,9 @@ export default class ShoppingCart extends Component{
 const styles = {
   container: {
     flex:1,
+    paddingTop:50,
     backgroundColor: '#99FFBB',
-    justifyContent: 'center',
+    justifyContent: 'flex-start',
     alignItems: 'flex-start'
   },
   title: {

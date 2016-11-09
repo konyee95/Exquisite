@@ -3,6 +3,9 @@ import { AppRegistry,StyleSheet,View , Text } from 'react-native';
 import { Card , CardSection } from './../components/common';
 import { Actions } from 'react-native-router-flux';
 
+import Icon from 'react-native-vector-icons/MaterialIcons';
+const accountbox = (<Icon name="account-box" size={30} color="black" />);
+
 export default class User extends Component{
   render(){
     return(
@@ -11,21 +14,25 @@ export default class User extends Component{
         <CardSection>
           <Text style= {styles.title}> User </Text>
         </CardSection>
-
-        <CardSection>
-          <Text style= {styles.title}> User Detail </Text>
-        </CardSection>
       </Card>
-
+      <View>
+        {accountbox}
+      </View>
       <Card>
         <CardSection>
-          <Text style= {styles.title}> Product 2 </Text>
+          <Text style= {styles.title}> Name: </Text>
         </CardSection>
-
         <CardSection>
-          <Text style= {styles.title}> Product Detail </Text>
+          <Text style= {styles.title}> Email: </Text>
+        </CardSection>
+        <CardSection>
+          <Text style= {styles.title}> Gender: </Text>
+        </CardSection>
+        <CardSection>
+          <Text style= {styles.title}> Address: </Text>
         </CardSection>
       </Card>
+
       </View>
     );
   }
@@ -34,8 +41,9 @@ export default class User extends Component{
 const styles = {
   container: {
     flex:1,
+    paddingTop:50,
     backgroundColor: '#CCCCFF',
-    justifyContent: 'center',
+    justifyContent: 'flex-start',
     alignItems: 'flex-start'
   },
   title: {
