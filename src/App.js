@@ -18,6 +18,7 @@ class App extends Component {
   }
 
   render(){
+    console.log('1 App js');
     return(
       <Router />
     );

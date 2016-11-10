@@ -11,36 +11,40 @@ import {
   Card,
   CardSection,
   Spinner,
-  LoginForm
 } from './../components/common';
 
-class App extends Component {
-  state = {loggedIn: null}
+import LoginForm from './../components/common/LoginForm';
 
-  renderContent() {
-    switch(this.state.loggedIn){
-      case true:
-        return (
-          <Button onPress={() => firebase.auth().signOut()}>
-            Sign Out
-          </Button>
-        );
-      case false:
-        return <LoginForm />;
-      default:
-        return <Spinner size="large" />;
-    }
-  }
+class App extends Component {
 
   render() {
+    const { container, skeleton, innerContainer, centerEverything } = styles;
     return(
-      <View>
+      <View style={[container, skeleton]}>
         <Header headerText="Exquisite" />
-        <View>
-          {this.renderContent()}
+        <View style={[innerContainer, skeleton]}>
+          <Text>login</Text>
         </View>
       </View>
     )
+  }
+}
+
+const styles = {
+  centerEverything: {
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  skeleton: {
+    borderWidth: 1,
+    borderColor: 'blue'
+  },
+  container: {
+    flex: 1
+  },
+  innerContainer: {
+    flex: 1,
+    paddingTop: 15
   }
 }
 

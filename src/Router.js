@@ -1,4 +1,3 @@
-import firebase from 'firebase';
 import React, { Component } from 'react';
 import {
   View,
@@ -10,6 +9,8 @@ import Home from './containers/Home';
 import User from './containers/User';
 import Offers from './containers/Offers';
 import ShoppingCart from './containers/ShoppingCart';
+
+import SplashScreen from './containers/SplashScreen';
 import Login from './containers/Login';
 
 //comment
@@ -22,28 +23,17 @@ const TabIcon=({ selected,title }) => {
 
 class RouterComponent extends Component {
 
-  componentWillMount() {
-    firebase.auth().onAuthStateChanged((user) => {
-      if(user) {
-        //go to main container
-        console.log('got user');
-      } else {
-        //stay at auth container
-        console.log('no user');
-      }
-    });
-  }
-
   render() {
     return(
-      <View style={{ flex: 1 }}>
+      <View style={[{ flex: 1 }, styles.skeleton]}>
           <Router>
             <Scene key="root">
-              <Scene key="auth" >
-                <Scene key="login" initial component={Login}/>
+              <Scene key="auth" initial hideNavBar>
+                <Scene key="splashScreen" component={SplashScreen} initial/>
+                <Scene key="login" component={Login}/>
               </Scene>
 
-              <Scene key="main" initial>
+              <Scene key="main">
                 <Scene key="tabbar" tabs tabBarStyle={{ backgroundColor: '#d9b3ff'}}>
                   <Scene key="Home" title="Home"  icon={TabIcon} >
                     <Scene initial key="home" component={Home} title="Home Screen " />
@@ -66,6 +56,13 @@ class RouterComponent extends Component {
           </Router>
       </View>
     );
+  }
+}
+
+const styles = {
+  skeleton: {
+    borderWidth: 1,
+    borderColor: 'red'
   }
 }
 

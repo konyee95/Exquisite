@@ -3,11 +3,14 @@ import {
   Text,
 } from 'react-native';
 
-import Button from './Button';
-import Card from './Card';
-import CardSection from './CardSection';
-import Input from './Input';
-import Spinner from './Spinner';
+import {
+  Header,
+  Input,
+  Button,
+  Card,
+  CardSection,
+  Spinner,
+} from './';
 
 import firebase from 'firebase';
 
@@ -89,4 +92,4 @@ const styles = {
   }
 }
 
-export { LoginForm };
+export default LoginForm;
