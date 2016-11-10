@@ -12,6 +12,8 @@ import Offers from './containers/Offers';
 import ShoppingCart from './containers/ShoppingCart';
 import Login from './containers/Login';
 
+//comment
+
 const TabIcon=({ selected,title }) => {
   return(
     <Text style={{color:selected ? 'blue': 'black'}}>{title}</Text>
