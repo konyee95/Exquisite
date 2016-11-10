@@ -5,6 +5,8 @@ import { Actions } from 'react-native-router-flux';
 
 import Icon from 'react-native-vector-icons/MaterialIcons';
 const accountbox = (<Icon name="account-box" size={30} color="black" />);
+const face = (<Icon name="face" size={30} color="black" />);
+const email = (<Icon name="email" size={30} color="black" />);
 
 export default class User extends Component{
   render(){
@@ -15,14 +17,14 @@ export default class User extends Component{
           <Text style= {styles.title}> User </Text>
         </CardSection>
       </Card>
-      <View>
-        {accountbox}
-      </View>
+
       <Card>
         <CardSection>
+          {face}
           <Text style= {styles.title}> Name: </Text>
         </CardSection>
         <CardSection>
+          {email}
           <Text style= {styles.title}> Email: </Text>
         </CardSection>
         <CardSection>

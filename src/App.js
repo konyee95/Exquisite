@@ -1,71 +1,25 @@
 import React, { Component } from 'react';
 import {AppRegistry , StyleSheet,  Text,  View} from 'react-native';
-import { Router, Scene } from 'react-native-router-flux';
+import firebase from 'firebase';
 import { Header ,Card, CardSection } from './components/common';
-import Home from './containers/Home';
-import User from './containers/User';
-import Offers from './containers/Offers';
-import ShoppingCart from './containers/ShoppingCart';
-
-
-import Icon from 'react-native-vector-icons/MaterialIcons';
-const home = (<Icon name="home" size={13} color="black" />)
-
-const TabIcon=({ selected,title }) => {
-  return(
-    <Text style={{color:selected ? 'blue': 'black'}}>{title}</Text>
-  );
-};
+import Router from './Router';
 
 class App extends Component {
+
+  componentWillMount() {
+    firebase.initializeApp({
+      //define firebase config here
+      apiKey: "AIzaSyCThyRVQ2k1vlTNgDn0WZ-lFLIgPsbUyIE",
+      authDomain: "exquisite-52c79.firebaseapp.com",
+      databaseURL: "https://exquisite-52c79.firebaseio.com",
+      storageBucket: "exquisite-52c79.appspot.com",
+      messagingSenderId: "1048577587736"
+    });
+  }
+
   render(){
     return(
-      //<View>
-      //  <Header headerText="EXQUISITE" />
-      <View style={{ flex: 1 }}>
-          <Router>
-            <Scene key="root">
-            <Scene
-              key="tabbar"
-              tabs
-              tabBarStyle={{ backgroundColor: '#d9b3ff'}}>
-              <Scene key="Home" title="Home" icon={TabIcon}>
-                <Scene
-                  initial
-                  key="home"
-                  component={Home }
-                  title="Home Screen " />
-            </Scene>
-
-            <Scene key="Offers" title="Offers" icon={TabIcon}>
-              <Scene
-                initial
-                key="offers"
-                component={Offers}
-                title="Offers Screen " />
-            </Scene>
-
-          <Scene key="ShoppingCart" title="Shopping cart" icon={TabIcon}>
-            <Scene
-              initial
-              key="shoppingcart"
-              component={ShoppingCart}
-              title="ShoppingCart Screen " />
-          </Scene>
-
-
-          <Scene key="User" title="My account" icon={TabIcon}>
-            <Scene
-              initial
-              key="user"
-              component={User}
-              title="User Screen " />
-          </Scene>
-
-            </Scene>
-            </Scene>
-          </Router>
-      </View>
+      <Router />
     );
   }
 }
