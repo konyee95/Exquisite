@@ -5,9 +5,9 @@ import {
   TextInput,
 } from 'react-native';
 
-const Input = ({ label, value, onChangeText, placeholder, secureTextEntry }) => {
+const Input = ({  placeholder, secureTextEntry, onChangeText, value }) => {
 
-  const {container, input, labelStyle } = styles;
+  const {inputStyle} = styles;
 
   return(
     <View style={container}>
@@ -16,34 +16,26 @@ const Input = ({ label, value, onChangeText, placeholder, secureTextEntry }) => 
         style={input}
         value={value}
         onChangeText={onChangeText}
+        autoCapilalize={'none'}
         autoCorrect={false}
         placeholder={placeholder}
         secureTextEntry={secureTextEntry}
       />
     </View>
-  )
+  );
 }
 
 const styles = {
-  container: {
+  inputStyle: {
     height: 40,
+    borderColor: '#CFD0D1',
+    borderWidth:1,
+    borderRadius:3,
+    fontSize:14,
     flex: 1,
     flexDirection: 'row',
-    alignItems: 'center'
-  },
-  input: {
-    color: '#000',
-    paddingRight: 5,
-    paddingLeft: 5,
-    fontSize: 18,
-    lineHeight: 23,
-    flex: 2
-  },
-  labelStyle: {
-    fontSize: 18,
     paddingLeft: 20,
-    flex: 1
   }
 }
 
-export default Input;
+export {Input};

@@ -10,6 +10,7 @@
     "firebase": "^3.6.0",
     "react": "15.3.2",
     "react-native": "0.36.1",
+    "react-native-button-component": "0.0.5",
     "react-native-vector-icons": "^3.0.0"
   },
   "jest": {

@@ -11,12 +11,19 @@ import {
   Card,
   CardSection,
   Spinner,
+  Input
 } from './../components/common';
 
 import LoginForm from './../components/common/LoginForm';
 
+import ButtonComponent from 'react-native-button-component';
+
 class App extends Component {
 
+ loginUser(){
+   const { email,password } = this.state;
+   this.loginUser(email,password);
+ }
   render() {
     const { container, skeleton, innerContainer, centerEverything } = styles;
     return(
@@ -24,8 +31,19 @@ class App extends Component {
         <Header headerText="Exquisite" />
         <View style={[innerContainer, skeleton]}>
           <Text>login</Text>
+          <Input label="email" placeholder="Email" onChangeText ={(email) => this.setState({email})} value={this.state.email} />
+          <Input label="password" placeholder="Password" onChangeText ={(password) => this.setState({password})} value=
+          {this.state.password} secureTextEntry />
         </View>
+
+        <ButtonComponent
+          style={buttonStyle}
+          type='primary'
+          shape='rectangle'
+          text='Sign In'
+        />
       </View>
+
     )
   }
 }
