@@ -5,15 +5,15 @@ import {
   TextInput,
 } from 'react-native';
 
-const Input = ({  placeholder, secureTextEntry, onChangeText, value }) => {
+const Input = ({ label, placeholder, secureTextEntry, onChangeText, value }) => {
 
-  const {inputStyle} = styles;
+  const {inputStyle, container,labelStyle} = styles;
 
   return(
     <View style={container}>
       <Text style={labelStyle}>{label}</Text>
       <TextInput
-        style={input}
+        style={inputStyle}
         value={value}
         onChangeText={onChangeText}
         autoCapilalize={'none'}
@@ -21,21 +21,36 @@ const Input = ({  placeholder, secureTextEntry, onChangeText, value }) => {
         placeholder={placeholder}
         secureTextEntry={secureTextEntry}
       />
-    </View>
+      </View>
   );
 }
 
 const styles = {
   inputStyle: {
     height: 40,
-    borderColor: '#CFD0D1',
+    borderColor: '#e60073',
     borderWidth:1,
-    borderRadius:3,
+    borderRadius:9,
     fontSize:14,
-    flex: 1,
+    flex: 2,
     flexDirection: 'row',
     paddingLeft: 20,
-  }
+  },
+
+  container: {
+    height: 40,
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent:'center',
+    alignItems: 'center',
+    paddingRight: 10,
+  },
+
+  labelStyle: {
+    fontSize: 18,
+    paddingLeft: 20,
+    flex: 1
+}
 }
 
 export {Input};
