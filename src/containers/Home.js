@@ -1,7 +1,6 @@
 import React ,{ Component }from 'react';
 import { AppRegistry,StyleSheet,View , Text } from 'react-native';
 import { Card , CardSection } from './../components/common';
-import { Actions } from 'react-native-router-flux';
 
 import ButtonComponent,{ RectangleButton } from 'react-native-button-component';
 import firebase from 'firebase';
@@ -13,9 +12,7 @@ const deviceHeight = require('Dimensions').get('window').height;
 export default class Home extends Component{
   logoutUser(){
     firebase.auth().signOut();
-      return {
-        Actions.auth()
-      };
+    Actions.auth();
   }
 
   render(){
@@ -32,16 +29,16 @@ export default class Home extends Component{
             <Text style= {styles.title}> Product  </Text>
           </CardSection>
         </Card>
-      </View>
 
-      <View style={styles.container}>
-        <ButtonComponent
-          type="primary"
-          shape="rectangle"
-          style={buttonStyle}
-          onPress={this.logoutUser}
-          text="Sign out"
-        />
+
+        <View style={styles.container}>
+          <ButtonComponent
+            type="primary"
+            shape="rectangle"
+            style={styles.buttonStyle}
+            onPress={this.logoutUser.bind(this)}
+            text="Sign out" />
+        </View>
       </View>
     );
   }

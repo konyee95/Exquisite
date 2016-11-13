@@ -21,7 +21,7 @@ class SplashScreen extends Component {
       } else {
         //stay at auth container
         console.log('Firebase: no user');
-        Actions.login()
+        Actions.login();
       }
     });
   }
