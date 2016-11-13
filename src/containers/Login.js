@@ -70,7 +70,7 @@ class App extends Component {
             type="primary"
             shape="rectangle"
             style={buttonStyle}
-            onPress={() => this.loginUser.bind(this)}
+            onPress={this.loginUser.bind(this)}
             text="Sign in"
           />
         </View>

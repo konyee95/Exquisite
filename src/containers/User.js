@@ -7,6 +7,8 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 const accountbox = (<Icon name="account-box" size={30} color="black" />);
 const face = (<Icon name="face" size={30} color="black" />);
 const email = (<Icon name="email" size={30} color="black" />);
+const wc = (<Icon name="wc" size={30} color="black" />);
+const contactmail = (<Icon name="contact-mail" size={30} color="black" />);
 
 export default class User extends Component{
   render(){
@@ -28,9 +30,11 @@ export default class User extends Component{
           <Text style= {styles.title}> Email: </Text>
         </CardSection>
         <CardSection>
+          {wc}
           <Text style= {styles.title}> Gender: </Text>
         </CardSection>
         <CardSection>
+          {contactmail}
           <Text style= {styles.title}> Address: </Text>
         </CardSection>
       </Card>
