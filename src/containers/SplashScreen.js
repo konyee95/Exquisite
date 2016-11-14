@@ -30,7 +30,9 @@ class SplashScreen extends Component {
     return (
       <View style={styles.centerEverything}>
         <Text>Welcome to Exquisite</Text>
-        <Spinner />
+        <View style={styles.innerContainer}>
+          <Spinner />
+        </View>
       </View>
     )
   }

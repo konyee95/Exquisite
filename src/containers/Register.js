@@ -14,78 +14,87 @@ import {
   Input
 } from './../components/common';
 
-import LoginForm from './../components/common/LoginForm';
-
 import ButtonComponent,{ RectangleButton } from 'react-native-button-component';
 import { Actions } from 'react-native-router-flux';
 
 const deviceWidth = require('Dimensions').get('window').width;
 const deviceHeight = require('Dimensions').get('window').height;
 
-class App extends Component {
-
+class Register extends Component{
   state = {
+    first_name: '',
+    last_name:'',
     email: '',
-    password: ''
+    password: '',
+    address:'',
+    telNo:'',
   }
 
- loginUser(){
+ registerUser(){
    const { email,password } = this.state;
-   firebase.auth().signInWithEmailAndPassword(email, password)
+    firebase.auth().createUserWithEmailAndPassword(email, password)
       .then(user => Actions.main({type:'reset'}))
       .catch((error) => console.log('error'));
  }
 
 
-  render() {
-    const { textStyle,container, skeleton, innerContainer, centerEverything ,buttonStyle} = styles;
+  render(){
+    const {centerEverything,skeleton,container,innerContainer,buttonStyle,textStyle}=styles;
     return(
-      <View style={[container, skeleton]}>
-        <Header headerText="Exquisite" />
-        <View style={[innerContainer, skeleton]}>
-            <Text style={textStyle}>Login</Text>
+      <View style={container}>
+        <View style={innerContainer}>
+          <Text style={textStyle}> Register account </Text>
         </View>
+        
+        <View style={innerContainer}>
+          <Input
+            label="First Name"
+            placeholder="First Name"
+            onChangeText ={(first_name) => this.setState({first_name})}
+            value={this.state.first_name} />
 
-        <View style={[innerContainer, skeleton]}>
-          <View>
             <Input
-              label="email"
+              label="Last Name"
+              placeholder="Last Name"
+              onChangeText ={(last_name) => this.setState({last_name})}
+              value={this.state.last_name} />
+
+            <Input
+              label="Email"
               placeholder="Email"
               onChangeText ={(email) => this.setState({email})}
               value={this.state.email} />
-          </View>
 
-          <View>
             <Input
-              label="password"
+              label="Password"
               placeholder="Password"
               onChangeText ={(password) => this.setState({password})}
-              value={this.state.password}
-              secureTextEntry />
-          </View>
+              value={this.state.password} />
+
+            <Input
+              label="Address"
+              placeholder="Address"
+              onChangeText ={(address) => this.setState({address})}
+              value={this.state.address} />
+
+            <Input
+              label="Tel No."
+              placeholder="Tel No."
+              onChangeText ={(telNo) => this.setState({telNo})}
+              value={this.state.telNo} />
         </View>
 
-        <View style={[centerEverything,innerContainer, skeleton]}>
+      <View style = {[centerEverything,innerContainer]}>
           <ButtonComponent
             type="primary"
             shape="rectangle"
             style={buttonStyle}
-            onPress={this.loginUser.bind(this)}
-            text="Sign in"
-          />
-
-          <ButtonComponent
-            type="primary"
-            shape="rectangle"
-            style={buttonStyle}
-            onPress={Actions.register()}
-            text="Register new account"
+            onPress={this.registerUser.bind(this)}
+            text="Sign up"
           />
         </View>
-
 
       </View>
-
     )
   }
 }
@@ -114,10 +123,9 @@ const styles = {
     borderRadius: 20,
     margin: 3
   },
-
   textStyle:{
-    fontSize: 20,
+    fontSize:20,
   }
 }
 
-export default App;
+export default Register;

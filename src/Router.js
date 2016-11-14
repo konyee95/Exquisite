@@ -12,6 +12,7 @@ import ShoppingCart from './containers/ShoppingCart';
 
 import SplashScreen from './containers/SplashScreen';
 import Login from './containers/Login';
+import Register from './containers/Register';
 
 //comment
 
@@ -31,6 +32,7 @@ class RouterComponent extends Component {
               <Scene key="auth" initial hideNavBar>
                 <Scene key="splashScreen" component={SplashScreen} initial/>
                 <Scene key="login" component={Login}/>
+                <Scene key="register" component={Register}/>
               </Scene>
 
               <Scene key="main">

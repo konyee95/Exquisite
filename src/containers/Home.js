@@ -58,7 +58,7 @@ const styles = {
     padding: 5
   },
   buttonStyle: {
-    backgroundColor: '#129793',
+    backgroundColor: '#ff6600',
     height: 40,
     width: deviceWidth*0.7,
     borderRadius: 20,
