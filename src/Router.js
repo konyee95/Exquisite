@@ -36,7 +36,7 @@ class RouterComponent extends Component {
               </Scene>
 
               <Scene key="main">
-                <Scene key="tabbar" tabs tabBarStyle={{ backgroundColor: '#d9b3ff'}}>
+                <Scene key="tabbar" tabs tabBarStyle={{ backgroundColor: '#ace600'}}>
                   <Scene key="Home" title="Home"  icon={TabIcon} >
                     <Scene initial key="home" component={Home} title="Home Screen " />
                   </Scene>

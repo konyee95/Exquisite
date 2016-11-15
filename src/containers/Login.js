@@ -40,13 +40,13 @@ class App extends Component {
   render() {
     const { textStyle,container, skeleton, innerContainer, centerEverything ,buttonStyle} = styles;
     return(
-      <View style={[container, skeleton]}>
-        <Header headerText="Exquisite" />
-        <View style={[innerContainer, skeleton]}>
+      <View style={[container]}>
+        <Header headerText="EXQUISITE" />
+        <View style={[innerContainer]}>
             <Text style={textStyle}>Login</Text>
         </View>
 
-        <View style={[innerContainer, skeleton]}>
+        <View style={[innerContainer]}>
           <View>
             <Input
               label="email"
@@ -65,7 +65,7 @@ class App extends Component {
           </View>
         </View>
 
-        <View style={[centerEverything,innerContainer, skeleton]}>
+        <View style={[centerEverything,innerContainer]}>
           <ButtonComponent
             type="primary"
             shape="rectangle"
@@ -78,7 +78,7 @@ class App extends Component {
             type="primary"
             shape="rectangle"
             style={buttonStyle}
-            onPress={Actions.register()}
+            onPress={() =>Actions.register()}
             text="Register new account"
           />
         </View>
@@ -108,7 +108,7 @@ const styles = {
     // alignItems: 'center'
   },
   buttonStyle: {
-    backgroundColor: '#ff6600',
+    backgroundColor: '#bfff00',
     height: 40,
     width: deviceWidth*0.7,
     borderRadius: 20,

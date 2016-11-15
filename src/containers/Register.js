@@ -45,7 +45,7 @@ class Register extends Component{
         <View style={innerContainer}>
           <Text style={textStyle}> Register account </Text>
         </View>
-        
+
         <View style={innerContainer}>
           <Input
             label="First Name"
@@ -66,10 +66,11 @@ class Register extends Component{
               value={this.state.email} />
 
             <Input
-              label="Password"
+              label="password"
               placeholder="Password"
               onChangeText ={(password) => this.setState({password})}
-              value={this.state.password} />
+              value={this.state.password}
+              secureTextEntry />
 
             <Input
               label="Address"
@@ -117,7 +118,7 @@ const styles = {
     // alignItems: 'center'
   },
   buttonStyle: {
-    backgroundColor: '#ff6600',
+    backgroundColor: '#bfff00',
     height: 40,
     width: deviceWidth*0.7,
     borderRadius: 20,
